@@ -10,7 +10,7 @@ References:
 
 For repository url, please see [ShinonomeTN Public Maven Repository](https://github.com/ShinonomeTN/maven-public)
 
-For maven: 
+Maven: 
 ```xml
 <dependency>
     <groupId>com.shinonometn</groupId>
@@ -19,7 +19,7 @@ For maven:
 </dependency>
 ```
 
-for gradle:
+Gradle:
 ```groovy
 implementation("com.shinonometn:btcodec-kt:1.0")
 ```
