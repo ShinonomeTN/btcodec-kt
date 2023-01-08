@@ -46,6 +46,8 @@ interface BValue {
     }
 
     companion object {
+
+        /** Wrap a byte array */
         fun wrap(bytes: ByteArray) : BBytes = object : BBytes() {
             override val value = bytes
             override fun encodeTo(output: OutputStream, charset: Charset) {
@@ -53,18 +55,26 @@ interface BValue {
                 output.write(bytes)
             }
         }
+        operator fun invoke(bytes : ByteArray) = wrap(bytes)
 
+        /** Wrap a string. BValue string are just bytes */
         fun wrap(string: String, charset: Charset = StandardCharsets.UTF_8) : BBytes = wrap(string.toByteArray(charset))
+        operator fun invoke(string: String, charset: Charset = StandardCharsets.UTF_8) = wrap(string, charset)
 
+        /** Wrap an integer */
         fun wrap(integer : BigInteger) : BInteger = object : BInteger() {
             override val value: BigInteger = integer
             override fun encodeTo(output: OutputStream, charset: Charset) {
                 output.write("i${integer}e".toByteArray(charset))
             }
         }
+        operator fun invoke(integer : BigInteger) = wrap(integer)
 
+        /** Wrap an integer */
         fun wrap(int : Int) : BInteger = wrap(int.toBigInteger())
+        operator fun invoke(int : Int) = wrap(int)
 
+        /** Wrap a BValue list */
         fun wrap(list : List<BValue>) : BList = object : BList() {
             override val value: List<BValue> = list
 
@@ -74,7 +84,9 @@ interface BValue {
                 output.write("e".toByteArray(charset))
             }
         }
+        operator fun invoke(list : List<BValue>) = wrap(list)
 
+        /** Wrap a BValue map */
         fun wrap(map : Map<String, BValue>) : BDictionary = object : BDictionary() {
             override val value: Map<String, BValue> = map
             override fun encodeTo(output: OutputStream, charset: Charset) {
@@ -90,5 +102,6 @@ interface BValue {
                 output.write("e".toByteArray(charset))
             }
         }
+        operator fun invoke(map : Map<String, BValue>) = wrap(map)
     }
 }
