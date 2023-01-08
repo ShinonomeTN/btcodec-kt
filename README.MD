@@ -10,6 +10,20 @@ References:
 
 For repository url, please see [ShinonomeTN Public Maven Repository](https://github.com/ShinonomeTN/maven-public)
 
+For maven: 
+```xml
+<dependency>
+    <groupId>com.shinonometn</groupId>
+    <artifactId>btcodec-kt</artifactId>
+    <version>1.0</version>
+</dependency>
+```
+
+for gradle:
+```groovy
+implementation("com.shinonometn:btcodec-kt:1.0")
+```
+
 ### Read bt protocol content
 
 ```kotlin
