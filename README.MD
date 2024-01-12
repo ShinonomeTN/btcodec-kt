@@ -15,13 +15,13 @@ Maven:
 <dependency>
     <groupId>com.shinonometn</groupId>
     <artifactId>btcodec-kt</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
 
 Gradle:
 ```groovy
-implementation("com.shinonometn:btcodec-kt:1.0")
+implementation("com.shinonometn:btcodec-kt:1.1")
 ```
 
 ### Read bt protocol content
