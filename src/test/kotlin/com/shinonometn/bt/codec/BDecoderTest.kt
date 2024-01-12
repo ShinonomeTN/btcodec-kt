@@ -1,6 +1,5 @@
 package com.shinonometn.bt.codec
 
-import net.catten.pt.hamster.bcodec.InvalidBEncodingException
 import org.junit.jupiter.api.Test
 import java.io.ByteArrayInputStream
 import kotlin.test.assertEquals
@@ -50,7 +49,7 @@ class BDecoderTest {
             // Pass
             return
         }
-        fail("Value $number is incorrect by BEP specification but is was parsed correctly")
+        fail("Value $number is incorrect by BEP specification but was parsed correctly")
     }
 
     private fun numberToBEPBytes(value: Long): ByteArray {

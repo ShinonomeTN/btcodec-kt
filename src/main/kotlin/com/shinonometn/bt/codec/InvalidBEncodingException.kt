@@ -1,3 +1,3 @@
-package net.catten.pt.hamster.bcodec
+package com.shinonometn.bt.codec
 
 class InvalidBEncodingException(message : String) : Exception(message)
